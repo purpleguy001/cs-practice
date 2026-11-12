@@ -70,3 +70,41 @@ print("bottom-right block:\n", part)
 print("shape:", part.shape)
 
 
+# задание 5. изменение массива с помощью срезов
+vector = np.array([10, 20, 30, 40, 50])
+vector[1:4] = 0
+print("vector example:", vector)
+
+small_matrix = np.arange(1, 10).reshape(3, 3)
+small_matrix[0, :] = -1
+small_matrix[1:, 1:] = 9
+print("small matrix example:\n", small_matrix)
+
+# copy() нужна, чтобы изменения changed_hours не меняли исходный hours.
+changed_hours = hours.copy()
+changed_hours[2:5] = 99
+changed_hours[1::2] = -1
+print("changed_hours:", changed_hours)
+print("hours:", hours)
+
+changed_matrix = matrix.copy()
+changed_matrix[1, :] = 0
+changed_matrix[:, -1] = -1
+changed_matrix[1:4, 1:4] = 100
+print("changed matrix:\n", changed_matrix)
+print("matrix:\n", matrix)
+
+
+# задание 6. изменение формы
+numbers = np.arange(12)
+table = numbers.reshape(3, 4)
+transposed = table.T
+
+print("numbers shape:", numbers.shape)
+print("table shape:", table.shape)
+print("transposed shape:", transposed.shape)
+print("table:\n", table)
+print("transposed:\n", transposed)
+
+# reshape(3, 4) работает: 3 * 4 = 12 элементов.
+# reshape(5, 3) вызовет ошибку: 5 * 3 = 15, а элементов только 12.
